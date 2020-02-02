@@ -1,0 +1,21 @@
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Online portfolio",
+  "main": "index.js",
+  "dependencies": {
+    "node-sass": "^4.13.1"
+  },
+  "devDependencies": {},
+  "scripts": {
+    "test": "test",
+    "build-sass": "node-sass wp-content/themes/portfolio/assets/scss/style.scss wp-content/themes/portfolio/style.css",
+    "watch-sass": "node-sass -w wp-content/themes/portfolio/assets/scss/style.scss wp-content/themes/portfolio/style.css"
+  },
+  "keywords": [
+    "Online",
+    "portfolio"
+  ],
+  "author": "Erick Laxamana",
+  "license": "ISC"
+}

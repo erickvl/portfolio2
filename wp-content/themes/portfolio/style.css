@@ -1,0 +1,275 @@
+.line-circle {
+  position: relative;
+  padding-bottom: 1rem;
+  font-family: "Bebas Neue", cursive;
+  letter-spacing: 4px;
+  margin-bottom: 40px; }
+  .line-circle::after, .line-circle::before {
+    content: '';
+    display: block;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: 0 auto; }
+  .line-circle::after {
+    width: 50px;
+    height: 4px;
+    border: 0 solid #111;
+    border-width: 1px 0; }
+  .line-circle::before {
+    bottom: -3px;
+    width: 11px;
+    height: 11px;
+    border-radius: 50px;
+    background-color: #111; }
+  .line-circle.light-color::after {
+    border-color: #fff; }
+  .line-circle.light-color::before {
+    background-color: #fff; }
+
+header {
+  background-color: rgba(17, 17, 17, 0.8);
+  width: 100%;
+  height: 100px; }
+  header .d-table-cell {
+    vertical-align: middle; }
+  header .nav-container {
+    text-align: right; }
+  header a:hover {
+    text-decoration: none; }
+  header .logo-text {
+    color: #fff;
+    font-family: "Ultra", serif;
+    font-size: 2rem;
+    transition: ease-in-out .3s; }
+    header .logo-text:hover {
+      color: #f44336; }
+  header .main-navigation {
+    list-style-type: none;
+    padding: 0;
+    margin: 0; }
+    header .main-navigation a {
+      padding: .25rem 0 .25rem 2rem;
+      color: #fff;
+      font-family: "Bebas Neue", cursive;
+      letter-spacing: 2px; }
+      header .main-navigation a:hover {
+        color: #f44336; }
+    header .main-navigation li {
+      display: inline-block; }
+      header .main-navigation li:first-child a {
+        padding-left: 0px; }
+
+#section1 {
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100vh;
+  position: relative;
+  overflow: hidden;
+  color: #fff;
+  text-align: center; }
+  #section1:before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(17, 17, 17, 0.6); }
+  #section1 .d-table {
+    position: relative;
+    z-index: 2; }
+  #section1 .d-table-cell {
+    vertical-align: middle; }
+  #section1 h1 {
+    font-weight: 700;
+    letter-spacing: 5px;
+    text-transform: uppercase;
+    font-family: "Ultra", serif;
+    font-size: 4rem;
+    text-shadow: 1px 1px #f44336; }
+  #section1 h5 {
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin: 1rem 0 1.5rem; }
+  #section1 p {
+    margin: 1.5rem 0;
+    font-size: 2.5rem;
+    font-family: "Bebas Neue", cursive;
+    letter-spacing: 2px; }
+  #section1 a {
+    display: inline-block;
+    background-color: #fff;
+    color: #111;
+    padding: .5rem 2rem;
+    font-weight: bold;
+    text-decoration: none;
+    transition: ease-in-out .3s;
+    border: 2px solid transparent; }
+    #section1 a:hover {
+      background-color: #111;
+      color: #fff;
+      border: 2px solid #f44336; }
+
+#about {
+  background-color: #efefef; }
+
+#experience .experience-container {
+  margin-top: 50px; }
+  #experience .experience-container .row:nth-last-of-type(1) .exp-content {
+    padding-bottom: 0px; }
+
+#experience .exp-content {
+  position: relative;
+  padding: 1rem 3.5rem 2rem; }
+  #experience .exp-content::after, #experience .exp-content::before {
+    content: '';
+    display: block;
+    position: absolute;
+    top: 0;
+    bottom: 0; }
+  #experience .exp-content.left-con {
+    text-align: right; }
+    #experience .exp-content.left-con::after {
+      right: 1px;
+      border-right: 1px solid #111; }
+    #experience .exp-content.left-con .icon-container {
+      right: -30px; }
+  #experience .exp-content.right-con {
+    text-align: left; }
+    #experience .exp-content.right-con::before {
+      left: 1px;
+      border-left: 1px solid #111; }
+    #experience .exp-content.right-con .icon-container {
+      left: -30px; }
+
+#experience .icon-container {
+  position: absolute;
+  width: 60px;
+  height: 60px;
+  text-align: center;
+  top: -1px;
+  border: 1px solid #111;
+  background-color: #fff;
+  z-index: 2;
+  padding: 2px;
+  transform: rotate(45deg); }
+  #experience .icon-container span {
+    position: relative;
+    vertical-align: middle;
+    z-index: 2;
+    border: 1px solid #111; }
+  #experience .icon-container i {
+    transform: rotate(-45deg);
+    font-size: 1.25rem; }
+
+#experience ul {
+  padding-left: 20px;
+  padding-right: 20px; }
+
+#experience h6 {
+  font-style: italic; }
+
+#skills {
+  background-color: #111;
+  color: #fff; }
+  #skills .skills {
+    text-align: right;
+    /* Right-align text */
+    padding-right: 20px;
+    /* Add some right padding */
+    line-height: 40px;
+    /* Set the line-height to center the text inside the skill bar, and to expand the height of the container */
+    color: white;
+    /* White text color */ }
+  #skills .skill-container {
+    position: relative; }
+  #skills .skills {
+    height: 4px;
+    position: relative;
+    z-index: 2;
+    border-radius: 50px; }
+  #skills .d-table {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 100%;
+    height: 100%; }
+  #skills .d-table-cell {
+    vertical-align: middle; }
+  #skills .guideline {
+    height: 2px;
+    background-color: #efefef; }
+
+#projects a {
+  color: #fff;
+  text-transform: uppercase; }
+
+#projects .image-container {
+  width: 100%; }
+
+#projects img {
+  max-width: 100%; }
+
+#projects .d-table {
+  position: absolute;
+  height: 100%;
+  width: 100%;
+  top: -150%;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  text-indent: -500px;
+  transition: ease-in-out .3s;
+  z-index: 2; }
+
+#projects .d-table-cell {
+  vertical-align: middle;
+  text-align: center; }
+
+#projects span {
+  text-decoration: underline; }
+
+#projects .projects-con {
+  text-align: center; }
+
+#projects .project {
+  display: inline-block;
+  width: 25%;
+  position: relative;
+  overflow: hidden;
+  border-radius: 100%;
+  padding: 100px;
+  margin: 2rem 1rem 0;
+  background-color: #efefef;
+  border: 2px solid transparent;
+  transition: ease-in-out .3s; }
+  #projects .project::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    bottom: 0;
+    right: 0;
+    left: 0;
+    box-shadow: inset 0px 0px 200px #111; }
+  #projects .project:hover {
+    border: 2px solid #f44336;
+    box-shadow: 0px 0px 4px #f44336; }
+    #projects .project:hover .d-table {
+      background-color: #111;
+      top: 0;
+      text-indent: 0; }
+
+.footer-copyright {
+  background-color: #111;
+  text-align: center; }
+  .footer-copyright p {
+    margin: 0;
+    padding: .5rem 0;
+    color: #fff;
+    font-size: .8rem;
+    width: 100%;
+    font-family: "Bebas Neue", cursive;
+    letter-spacing: 4px; }

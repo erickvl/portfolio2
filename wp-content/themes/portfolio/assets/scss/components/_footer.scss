@@ -1,0 +1,14 @@
+.footer-copyright {
+    background-color: $black;
+    text-align: center;
+
+    p {
+        margin: 0;
+        padding: .5rem 0;
+        color: $white;
+        font-size: .8rem;
+        width: 100%;
+        font-family: $bebas;
+        letter-spacing: 4px;
+    }
+}
