@@ -1,4 +1,29 @@
 #about {
     background-color: $dirty_white;
+
+    @include breakpoint(768px) {
+        text-align: center;
+    }
     
+    .image-container {
+        float: left;
+        overflow: hidden;
+        margin: 0 2rem 2rem 0;
+        border-radius: 100%;
+        border: 3px solid $black;
+        
+        @include breakpoint(768px) {
+            float: none;
+            border-radius: 0px;
+            display: inline-block;
+        }
+
+        @include breakpoint(380px) {
+            width: 100%;
+        }
+    }
+
+    img {
+        max-width: 100%;
+    }
 }

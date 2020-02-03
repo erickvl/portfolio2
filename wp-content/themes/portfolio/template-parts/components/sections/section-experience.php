@@ -17,7 +17,7 @@
                 <?php while ( $the_query->have_posts() ) : $the_query->the_post(); ?>
                 
                 <div class="row">
-                    <div class="col-lg-6 left-con exp-content">
+                    <div class="col-lg-6 left-con exp-content <?php echo $ctr%2 == 1 ? '': 'blank-content'; ?>">
 
                         <?php if ( $ctr%2 == 1 ) : ?>
 
@@ -37,7 +37,7 @@
                         <?php endif; ?>
 
                     </div>
-                    <div class="col-lg-6 right-con exp-content">
+                    <div class="col-lg-6 right-con exp-content <?php echo $ctr%2 == 0 ? '': 'blank-content'; ?>">
 
                         <?php if ( $ctr%2 == 0 ) : ?>
 

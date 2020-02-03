@@ -1,6 +1,7 @@
 #skills {
     background-color: $black;
     color: $white;
+    text-align: center;
 
     .skills {
         text-align: right; /* Right-align text */
@@ -35,5 +36,11 @@
     .guideline {
         height: 2px;
         background-color: #efefef;
+    }
+
+    .cols {
+        @include breakpoint (768px) {
+            padding: 0 !important;
+        }
     }
 }

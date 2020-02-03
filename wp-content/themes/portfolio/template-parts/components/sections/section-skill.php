@@ -18,16 +18,16 @@
 
                 ?>
                 
-                    <div class="col-lg-6 mt-3">
+                    <div class="col-lg-6 col-md-12 cols mt-3">
                         <div class="row">
-                            <div class="col-lg-6 text-left">
+                            <div class="col-6 cols text-left">
                                 <?php the_field('skill_name'); ?>
                             </div>
-                            <div class="col-lg-6 text-right">
+                            <div class="col-6 cols text-right">
                                 <?php the_field('skill_percentage'); ?>%
                             </div>
 
-                            <div class="col-lg-12 mt-3">
+                            <div class="col-lg-12 cols mt-3">
                                 <div class="skill-container">
                                     <div class="skills html" style="width: <?php echo $percentage; ?>; background-color: #f44336; box-shadow: 0px 0px 2px #f44336;">
                                     </div>

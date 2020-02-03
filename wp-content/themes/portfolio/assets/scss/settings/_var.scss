@@ -1,0 +1,17 @@
+// media query breakpoints
+$small: 320px; // mobile
+$medium: 760px; // tablet
+$large: 1024px; // small desktop
+$x-large: 1280px; // large desktop
+$xx-large: 1440px; // x-large desktop
+
+// breakpoint map
+$breakpoints: (
+  small: $small,
+  medium: $medium,
+  large: $large,
+  x-large: $x-large,
+  xx-large: $xx-large
+);
+
+$breakpointResponsive: ($small, $medium, $large, $x-large, $xx-large);

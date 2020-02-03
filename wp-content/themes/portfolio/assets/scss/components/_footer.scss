@@ -12,3 +12,32 @@
         letter-spacing: 4px;
     }
 }
+
+#google_map_con {
+    position: relative;
+    border-top: 2px solid $black;
+
+    &::before {
+        content: '';
+        display: block;
+        position: absolute;
+        width: 100%;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        background-color: rgba(17, 17, 17, .4);
+    }
+}
+
+.container {
+    @include breakpoint(1000px) {
+        max-width: 100%;
+    }
+}
+
+.row {
+    @include breakpoint(1000px) {
+        margin-left: 0;
+        margin-right: 0;
+    }
+}

@@ -1,3 +1,22 @@
+/*------------------------------------------------------------------*\
+  BREAKPOINT
+    for breakpoint sizes refer to settings/_variables.scss -> $breakpoints maps
+    usage:
+      @include breakpoint($breakpoint) {
+        <styles>
+      }
+\*------------------------------------------------------------------*/
+/*---------------------------------------------------------------*\
+    RESPONSIVE PROPERTY HANDLER
+      handles the per-breakpoint property for mobile-first approach
+      note: requires a key-less 'breakpoints' scss map
+            e.g. $breakpoints: ( 320px, 760px, 1080px, 1280px );
+      usage:
+        @include respond(
+          (display, none, block, flex),
+          (margin-top, null, 10px, 20px)
+        );
+  \*---------------------------------------------------------------*/
 .line-circle {
   position: relative;
   padding-bottom: 1rem;
@@ -28,10 +47,49 @@
   .line-circle.light-color::before {
     background-color: #fff; }
 
+.contact-links {
+  color: #f44336;
+  font-size: 16px; }
+  .contact-links:hover {
+    color: #fff; }
+
 header {
   background-color: rgba(17, 17, 17, 0.8);
   width: 100%;
-  height: 100px; }
+  height: 150px;
+  position: relative;
+  padding-top: 30px; }
+  @media (max-width: 930px) {
+    header.fixed-top {
+      position: relative;
+      top: 0 !important;
+      text-align: center;
+      padding: 30px 0;
+      height: auto;
+      background-color: #111; } }
+  header .contact-info-con {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    padding: 4px;
+    background-color: #fff;
+    border-bottom: 1px solid #fff; }
+    header .contact-info-con .contact-links {
+      color: #111; }
+      header .contact-info-con .contact-links:hover {
+        color: #f44336; }
+    @media (max-width: 930px) {
+      header .contact-info-con {
+        display: none; } }
+  header .left-contacts i {
+    display: inline-block;
+    padding-right: 2px; }
+  header .left-contacts span {
+    display: inline-block;
+    padding: 0 10px; }
+  header .right-contacts i {
+    margin-right: 10px; }
   header .d-table-cell {
     vertical-align: middle; }
   header .nav-container {
@@ -45,17 +103,49 @@ header {
     transition: ease-in-out .3s; }
     header .logo-text:hover {
       color: #f44336; }
+    @media (max-width: 480px) {
+      header .logo-text {
+        font-size: 1.5rem; } }
+  header .mobile-contact-info {
+    display: none; }
+    @media (max-width: 930px) {
+      header .mobile-contact-info {
+        display: block; }
+        header .mobile-contact-info a {
+          display: block;
+          color: #fff;
+          margin-bottom: 8px; }
+        header .mobile-contact-info i {
+          display: none; } }
   header .main-navigation {
     list-style-type: none;
     padding: 0;
     margin: 0; }
+    @media (max-width: 930px) {
+      header .main-navigation {
+        display: none; } }
     header .main-navigation a {
-      padding: .25rem 0 .25rem 2rem;
+      margin: .25rem 0 .25rem 2rem;
       color: #fff;
       font-family: "Bebas Neue", cursive;
-      letter-spacing: 2px; }
+      letter-spacing: 5px;
+      position: relative; }
+      header .main-navigation a::after {
+        content: '';
+        display: block;
+        position: absolute;
+        height: 2px;
+        width: 0;
+        margin: 0 auto;
+        background-color: #f44336;
+        left: 50%;
+        bottom: -5px;
+        transition: ease-in-out 0.2s; }
       header .main-navigation a:hover {
         color: #f44336; }
+        header .main-navigation a:hover::after {
+          width: 100%;
+          left: 0; }
     header .main-navigation li {
       display: inline-block; }
       header .main-navigation li:first-child a {
@@ -69,6 +159,10 @@ header {
   overflow: hidden;
   color: #fff;
   text-align: center; }
+  @media (max-width: 648px) {
+    #section1 {
+      height: auto;
+      padding: 3rem 0; } }
   #section1:before {
     content: '';
     display: block;
@@ -90,6 +184,15 @@ header {
     font-family: "Ultra", serif;
     font-size: 4rem;
     text-shadow: 1px 1px #f44336; }
+    @media (max-width: 648px) {
+      #section1 h1 {
+        font-size: 3rem; } }
+    @media (max-width: 480px) {
+      #section1 h1 {
+        font-size: 2.5rem; } }
+    @media (max-width: 380px) {
+      #section1 h1 {
+        font-size: 2rem; } }
   #section1 h5 {
     text-transform: uppercase;
     letter-spacing: 1px;
@@ -99,6 +202,12 @@ header {
     font-size: 2.5rem;
     font-family: "Bebas Neue", cursive;
     letter-spacing: 2px; }
+    @media (max-width: 648px) {
+      #section1 p {
+        font-size: 2rem; } }
+    @media (max-width: 480px) {
+      #section1 p {
+        font-size: 1.5rem; } }
   #section1 a {
     display: inline-block;
     background-color: #fff;
@@ -115,11 +224,33 @@ header {
 
 #about {
   background-color: #efefef; }
+  @media (max-width: 768px) {
+    #about {
+      text-align: center; } }
+  #about .image-container {
+    float: left;
+    overflow: hidden;
+    margin: 0 2rem 2rem 0;
+    border-radius: 100%;
+    border: 3px solid #111; }
+    @media (max-width: 768px) {
+      #about .image-container {
+        float: none;
+        border-radius: 0px;
+        display: inline-block; } }
+    @media (max-width: 380px) {
+      #about .image-container {
+        width: 100%; } }
+  #about img {
+    max-width: 100%; }
 
 #experience .experience-container {
   margin-top: 50px; }
   #experience .experience-container .row:nth-last-of-type(1) .exp-content {
     padding-bottom: 0px; }
+    @media (max-width: 1000px) {
+      #experience .experience-container .row:nth-last-of-type(1) .exp-content {
+        padding-bottom: 1.5rem; } }
 
 #experience .exp-content {
   position: relative;
@@ -130,6 +261,9 @@ header {
     position: absolute;
     top: 0;
     bottom: 0; }
+    @media (max-width: 1000px) {
+      #experience .exp-content::after, #experience .exp-content::before {
+        content: none; } }
   #experience .exp-content.left-con {
     text-align: right; }
     #experience .exp-content.left-con::after {
@@ -137,6 +271,12 @@ header {
       border-right: 1px solid #111; }
     #experience .exp-content.left-con .icon-container {
       right: -30px; }
+      @media (max-width: 1000px) {
+        #experience .exp-content.left-con .icon-container {
+          right: 0; } }
+    @media (max-width: 1000px) {
+      #experience .exp-content.left-con {
+        text-align: left; } }
   #experience .exp-content.right-con {
     text-align: left; }
     #experience .exp-content.right-con::before {
@@ -144,6 +284,20 @@ header {
       border-left: 1px solid #111; }
     #experience .exp-content.right-con .icon-container {
       left: -30px; }
+      @media (max-width: 1000px) {
+        #experience .exp-content.right-con .icon-container {
+          right: 0;
+          left: auto; } }
+  @media (max-width: 1000px) {
+    #experience .exp-content {
+      border: 1px solid #111;
+      margin-top: 20px;
+      box-shadow: 2px 2px 1px #111;
+      padding: 2rem 1.5rem 1.5rem;
+      max-width: 100%;
+      flex: 1; }
+      #experience .exp-content.blank-content {
+        display: none; } }
 
 #experience .icon-container {
   position: absolute;
@@ -156,6 +310,10 @@ header {
   z-index: 2;
   padding: 2px;
   transform: rotate(45deg); }
+  @media (max-width: 1000px) {
+    #experience .icon-container {
+      transform: rotate(0);
+      top: 0; } }
   #experience .icon-container span {
     position: relative;
     vertical-align: middle;
@@ -164,17 +322,28 @@ header {
   #experience .icon-container i {
     transform: rotate(-45deg);
     font-size: 1.25rem; }
+    @media (max-width: 1000px) {
+      #experience .icon-container i {
+        transform: rotate(0); } }
 
 #experience ul {
   padding-left: 20px;
   padding-right: 20px; }
+  @media (max-width: 1000px) {
+    #experience ul {
+      direction: ltr; } }
 
 #experience h6 {
   font-style: italic; }
 
+@media (max-width: 768px) {
+  #experience h4 {
+    font-size: 1.3rem; } }
+
 #skills {
   background-color: #111;
-  color: #fff; }
+  color: #fff;
+  text-align: center; }
   #skills .skills {
     text-align: right;
     /* Right-align text */
@@ -202,65 +371,90 @@ header {
   #skills .guideline {
     height: 2px;
     background-color: #efefef; }
+  @media (max-width: 768px) {
+    #skills .cols {
+      padding: 0 !important; } }
 
-#projects a {
-  color: #fff;
-  text-transform: uppercase; }
-
-#projects .image-container {
-  width: 100%; }
-
-#projects img {
-  max-width: 100%; }
-
-#projects .d-table {
-  position: absolute;
-  height: 100%;
-  width: 100%;
-  top: -150%;
-  bottom: 0;
-  left: 0;
-  right: 0;
-  text-indent: -500px;
-  transition: ease-in-out .3s;
-  z-index: 2; }
-
-#projects .d-table-cell {
-  vertical-align: middle;
+#projects {
   text-align: center; }
-
-#projects span {
-  text-decoration: underline; }
-
-#projects .projects-con {
-  text-align: center; }
-
-#projects .project {
-  display: inline-block;
-  width: 25%;
-  position: relative;
-  overflow: hidden;
-  border-radius: 100%;
-  padding: 100px;
-  margin: 2rem 1rem 0;
-  background-color: #efefef;
-  border: 2px solid transparent;
-  transition: ease-in-out .3s; }
-  #projects .project::before {
-    content: '';
+  #projects a {
+    color: #fff;
+    text-transform: uppercase; }
+  #projects .image-container {
+    width: 100%; }
+  #projects img {
+    max-width: 100%; }
+  #projects .d-table {
     position: absolute;
-    top: 0;
+    height: 100%;
+    width: 100%;
+    top: -150%;
     bottom: 0;
-    right: 0;
     left: 0;
-    box-shadow: inset 0px 0px 200px #111; }
-  #projects .project:hover {
-    border: 2px solid #f44336;
-    box-shadow: 0px 0px 4px #f44336; }
-    #projects .project:hover .d-table {
-      background-color: #111;
+    right: 0;
+    text-indent: -500px;
+    transition: ease-in-out .3s;
+    z-index: 2; }
+    @media (max-width: 768px) {
+      #projects .d-table {
+        top: auto;
+        height: auto;
+        background-color: #111;
+        bottom: 0;
+        text-indent: 0;
+        padding: .5rem 0;
+        font-size: .8rem; } }
+  #projects .d-table-cell {
+    vertical-align: middle;
+    text-align: center; }
+  #projects span {
+    text-decoration: underline; }
+    @media (max-width: 768px) {
+      #projects span {
+        text-decoration: none; } }
+  #projects .projects-con {
+    text-align: center; }
+  #projects .project {
+    display: inline-block;
+    width: 25%;
+    position: relative;
+    overflow: hidden;
+    border-radius: 100%;
+    padding: 100px;
+    margin: 2rem 1rem 0;
+    background-color: #efefef;
+    border: 2px solid transparent;
+    transition: ease-in-out .3s; }
+    @media (max-width: 1024px) {
+      #projects .project {
+        padding: 50px; } }
+    @media (max-width: 768px) {
+      #projects .project {
+        width: 30%;
+        border-radius: 0px;
+        margin: 1rem .5rem 0; } }
+    @media (max-width: 648px) {
+      #projects .project {
+        width: 40%; } }
+    @media (max-width: 480px) {
+      #projects .project {
+        width: 100%;
+        margin: 10px auto 0; } }
+    #projects .project::before {
+      content: '';
+      position: absolute;
       top: 0;
-      text-indent: 0; }
+      bottom: 0;
+      right: 0;
+      left: 0;
+      box-shadow: inset 0px 0px 200px #111; }
+    #projects .project:hover {
+      border: 2px solid #f44336;
+      box-shadow: 0px 0px 4px #f44336; }
+      #projects .project:hover .d-table {
+        background-color: #111;
+        top: 0;
+        text-indent: 0; }
 
 .footer-copyright {
   background-color: #111;
@@ -273,3 +467,25 @@ header {
     width: 100%;
     font-family: "Bebas Neue", cursive;
     letter-spacing: 4px; }
+
+#google_map_con {
+  position: relative;
+  border-top: 2px solid #111; }
+  #google_map_con::before {
+    content: '';
+    display: block;
+    position: absolute;
+    width: 100%;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    background-color: rgba(17, 17, 17, 0.4); }
+
+@media (max-width: 1000px) {
+  .container {
+    max-width: 100%; } }
+
+@media (max-width: 1000px) {
+  .row {
+    margin-left: 0;
+    margin-right: 0; } }

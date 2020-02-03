@@ -1,0 +1,53 @@
+/*------------------------------------------------------------------*\
+  BREAKPOINT
+    for breakpoint sizes refer to settings/_variables.scss -> $breakpoints maps
+    usage:
+      @include breakpoint($breakpoint) {
+        <styles>
+      }
+\*------------------------------------------------------------------*/
+@mixin breakpoint($breakpoint) {
+    @if map-has-key($breakpoints, $breakpoint) {
+      @media (max-width: #{map-get($breakpoints, $breakpoint)}) {
+        @content;
+      }
+    } @else {
+      @media (max-width: $breakpoint) {
+        @content;
+      }
+    }
+  }
+  
+  
+  /*---------------------------------------------------------------*\
+    RESPONSIVE PROPERTY HANDLER
+      handles the per-breakpoint property for mobile-first approach
+      note: requires a key-less 'breakpoints' scss map
+            e.g. $breakpoints: ( 320px, 760px, 1080px, 1280px );
+      usage:
+        @include respond(
+          (display, none, block, flex),
+          (margin-top, null, 10px, 20px)
+        );
+  \*---------------------------------------------------------------*/
+  @mixin responsive($args...) {
+    @for $i from 1 through length($breakpointResponsive) { // loop through all the breakpoints
+      @if $i == 1 { // if the loop is in the smallest breakpoint
+        @for $j from 1 through length($args) { // loop through all the properties
+          @if( #{nth(nth($args, $j), 2)} != null ) {
+            #{nth(nth($args, $j), 1)} : #{nth(nth($args, $j), 2)}; // apply value to the property
+          }
+        }
+      } @else { // if the loop is not in the smallest breakpoint
+        @media (min-width: #{nth($breakpointResponsive, $i)}) { // set mediq query
+          @for $j from 1 through length($args) { // loop through all the properties
+            @if $i < length(nth($args, $j)) { // check if the number of values is less than the number of breakpoints
+              @if( #{nth(nth($args, $j), $i+1)} != null ) {
+                #{nth(nth($args, $j), 1)} : #{nth(nth($args, $j), $i+1)}; // apply value to the property
+              }
+            }
+          }
+        }
+      }
+    }
+  }
